@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         menuToggle.classList.toggle('active');
         
         // Prevent body scroll when menu is open
-        if (nav.classList.contains('active'))) {
+        if (nav.classList.contains('active')) {
             body.style.overflow = 'hidden';
             console.log('🔒 Body scroll locked');
         } else {
