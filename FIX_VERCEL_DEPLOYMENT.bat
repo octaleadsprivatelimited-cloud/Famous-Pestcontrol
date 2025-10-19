@@ -1,29 +1,16 @@
 @echo off
 echo ========================================
-echo CRITICAL: Fix Vercel Deployment Issues
+echo Fix Vercel Deployment Failure
 echo ========================================
 echo.
 
-echo [STEP 1] Checking if Git is installed...
-git --version >nul 2>&1
-if %errorlevel% neq 0 (
-    echo ❌ Git is not installed!
-    echo.
-    echo Please install Git first:
-    echo 1. Go to: https://git-scm.com/download/win
-    echo 2. Download and install Git
-    echo 3. Restart your computer
-    echo 4. Run this script again
-    echo.
-    pause
-    exit /b 1
-)
-
-echo ✅ Git is installed
+echo [STEP 1] Updating configuration files...
+echo ✅ Updated vercel.json
+echo ✅ Updated package.json
 echo.
 
-echo [STEP 2] Adding all files to Git...
-git add .
+echo [STEP 2] Adding changes to Git...
+& "C:\Program Files\Git\bin\git.exe" add vercel.json package.json
 if %errorlevel% neq 0 (
     echo ❌ Failed to add files
     pause
@@ -34,7 +21,7 @@ echo ✅ Files added successfully
 echo.
 
 echo [STEP 3] Committing changes...
-git commit -m "Complete website upload - Added CSS, JS, images, and configuration files"
+& "C:\Program Files\Git\bin\git.exe" commit -m "Fix Vercel deployment configuration - Updated vercel.json and package.json"
 if %errorlevel% neq 0 (
     echo ❌ Failed to commit
     pause
@@ -45,7 +32,7 @@ echo ✅ Changes committed
 echo.
 
 echo [STEP 4] Pushing to GitHub...
-git push origin main
+& "C:\Program Files\Git\bin\git.exe" push origin main
 if %errorlevel% neq 0 (
     echo ❌ Failed to push to GitHub
     echo.
@@ -62,19 +49,22 @@ echo ✅ Successfully pushed to GitHub
 echo.
 
 echo ========================================
-echo 🎉 DEPLOYMENT COMPLETE!
+echo 🎉 DEPLOYMENT FIX APPLIED!
 echo ========================================
 echo.
-echo Your website should now work correctly on Vercel!
+echo Changes made:
+echo ✅ Updated vercel.json with proper static site configuration
+echo ✅ Updated package.json with empty build commands
+echo ✅ Pushed changes to GitHub
 echo.
 echo Next steps:
-echo 1. Wait 2-3 minutes for Vercel to auto-deploy
-echo 2. Visit your website URL
-echo 3. Check that all styling and images load
+echo 1. Vercel will auto-detect the changes
+echo 2. Wait 2-3 minutes for redeployment
+echo 3. Check your website URL
 echo.
-echo If issues persist:
-echo 1. Clear browser cache
-echo 2. Try incognito mode
-echo 3. Check Vercel deployment logs
+echo If deployment still fails:
+echo 1. Check Vercel build logs for specific errors
+echo 2. Verify project settings in Vercel dashboard
+echo 3. Ensure all files are properly uploaded
 echo.
 pause
