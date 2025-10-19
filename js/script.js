@@ -1,40 +1,88 @@
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Menu Toggle
+    // Enhanced Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.nav');
     const navLinks = document.querySelectorAll('.nav-link');
+    const body = document.body;
 
-    // Toggle mobile menu
-    menuToggle.addEventListener('click', function() {
-        nav.classList.toggle('active');
-        menuToggle.classList.toggle('active');
-        
-        // Animate hamburger menu
-        const spans = menuToggle.querySelectorAll('span');
-        if (menuToggle.classList.contains('active')) {
-            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-            spans[1].style.opacity = '0';
-            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-        } else {
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
-        }
-    });
+    // Toggle mobile menu with enhanced functionality
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            nav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (nav.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
+            
+            // Animate hamburger menu
+            const spans = menuToggle.querySelectorAll('span');
+            if (menuToggle.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+    }
 
     // Close mobile menu when clicking on nav links
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                menuToggle.classList.remove('active');
+                body.style.overflow = '';
+                
+                // Reset hamburger menu
+                const spans = menuToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (nav.classList.contains('active') && 
+            !nav.contains(e.target) && 
+            !menuToggle.contains(e.target)) {
             nav.classList.remove('active');
             menuToggle.classList.remove('active');
+            body.style.overflow = '';
             
             // Reset hamburger menu
             const spans = menuToggle.querySelectorAll('span');
             spans[0].style.transform = 'none';
             spans[1].style.opacity = '1';
             spans[2].style.transform = 'none';
-        });
+        }
+    });
+
+    // Close mobile menu on window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && nav.classList.contains('active')) {
+            nav.classList.remove('active');
+            menuToggle.classList.remove('active');
+            body.style.overflow = '';
+            
+            // Reset hamburger menu
+            const spans = menuToggle.querySelectorAll('span');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        }
     });
 
     // Smooth scrolling for anchor links
