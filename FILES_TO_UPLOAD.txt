@@ -1,0 +1,56 @@
+FAMOUS PEST CONTROL SERVICES - FILES TO UPLOAD
+===============================================
+
+MAIN PAGES (8 files):
+- index.html
+- about.html
+- services.html
+- contact.html
+- blog.html
+- testimonials.html
+- privacy-policy.html
+- terms-conditions.html
+
+SERVICE PAGES (8 files):
+- cockroach-control.html
+- termite-control.html
+- rodent-control.html
+- bedbug-control.html
+- ant-control.html
+- mosquito-control.html
+- spider-control.html
+- flies-control.html
+
+BLOG PAGES (5 files):
+- cockroach-prevention-guide.html
+- termite-signs-guide.html
+- mosquito-control-guide.html
+- bedbug-identification-guide.html
+- rodent-control-guide.html
+
+ASSETS:
+- css/style.css
+- js/script.js
+- images/ (entire folder with all images)
+- sitemap.xml
+- robots.txt
+- README.md
+
+DOCUMENTATION:
+- DEPLOYMENT_GUIDE.md
+- MANUAL_UPLOAD_STEPS.md
+- SOLVE_ERRORS_AND_UPLOAD.md
+- UPLOAD_SUMMARY.md
+- .gitignore
+
+TOTAL: 22 HTML pages + assets + documentation
+
+UPLOAD TO: https://github.com/octaleadsprivatelimited-cloud/Famous-Pestcontrol.git
+
+AFTER UPLOAD:
+1. Go to repository Settings
+2. Click Pages
+3. Select "Deploy from a branch"
+4. Choose "main" branch
+5. Your site will be live at:
+   https://octaleadsprivatelimited-cloud.github.io/Famous-Pestcontrol/

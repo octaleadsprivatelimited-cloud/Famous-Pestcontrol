@@ -1,0 +1,8 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="32" cy="32" r="30" fill="#FF9800" stroke="#F57C00" stroke-width="2"/>
+  <path d="M32 20L40 24L32 28L24 24L32 20Z" fill="white"/>
+  <path d="M32 28L40 32L32 36L24 32L32 28Z" fill="white"/>
+  <path d="M32 36L40 40L32 44L24 40L32 36Z" fill="white"/>
+  <circle cx="32" cy="32" r="4" fill="#F57C00"/>
+  <text x="32" y="36" text-anchor="middle" fill="white" font-size="6" font-weight="bold">ISO</text>
+</svg>
