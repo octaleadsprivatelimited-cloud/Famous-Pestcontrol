@@ -1,0 +1,25 @@
+{
+  "name": "famous-pest-control-website",
+  "version": "1.0.0",
+  "description": "Famous Pest Control Services - India's Leading Pest Management Experts",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static website - no build required'",
+    "start": "echo 'Static website - serve index.html'"
+  },
+  "keywords": [
+    "pest-control",
+    "website",
+    "static",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Famous Pest Control Services",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/octaleadsprivatelimited-cloud/Famous-Pestcontrol.git"
+  },
+  "homepage": "https://famous-pestcontrol.vercel.app"
+}
