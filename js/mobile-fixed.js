@@ -1,5 +1,4 @@
 // Mobile-Fixed JavaScript with Working Mobile Menu
-
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Mobile-fixed JavaScript loaded');
     
@@ -38,18 +37,20 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('🔓 Body scroll unlocked');
         }
         
-        // Animate hamburger menu
+        // Animate hamburger menu if 3 spans exist
         const spans = menuToggle.querySelectorAll('span');
-        if (menuToggle.classList.contains('active')) {
-            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-            spans[1].style.opacity = '0';
-            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-            console.log('🍔 Hamburger menu animated to X');
-        } else {
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
-            console.log('🍔 Hamburger menu reset');
+        if (spans.length === 3) {
+            if (menuToggle.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                console.log('🍔 Hamburger menu animated to X');
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+                console.log('🍔 Hamburger menu reset');
+            }
         }
     }
 
@@ -63,9 +64,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Reset hamburger menu
         const spans = menuToggle.querySelectorAll('span');
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
+        if (spans.length === 3) {
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        }
     }
 
     // Mobile Menu Toggle Event
@@ -125,10 +128,12 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        if (scrollTop > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+        if (header) {
+            if (scrollTop > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         }
         
         lastScrollTop = scrollTop;
@@ -144,8 +149,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
             
-            // Basic validation
-            if (!data.name || !data.email || !data.phone) {
+            // Basic validation with trimming
+            if (!data.name.trim() || !data.email.trim() || !data.phone.trim()) {
                 alert('Please fill in all required fields');
                 return;
             }
